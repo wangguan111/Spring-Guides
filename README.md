@@ -14,3 +14,9 @@ Whatever you're building, these guides are designed to get you productive as qui
 	@EnableScheduling
 	@Scheduled(fixedRate = 5000)
 	@Component
+
+
+3.Consuming a RESTful Web Service
+
+	@JsonIgnoreProperties(ignoreUnknown = true)
+	@Bean
