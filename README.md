@@ -7,3 +7,10 @@ Whatever you're building, these guides are designed to get you productive as qui
 		http://localhost:8080/greeting?name=User
 
 	@RestController
+
+
+2.Scheduling Tasks 
+
+	@EnableScheduling
+	@Scheduled(fixedRate = 5000)
+	@Component
