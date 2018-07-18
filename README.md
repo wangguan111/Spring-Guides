@@ -21,3 +21,11 @@ Whatever you're building, these guides are designed to get you productive as qui
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	@Bean
 	CommandLineRunner
+
+
+4.Accessing Relational Data using JDBC with Spring
+
+	compile("com.h2database:h2")
+	jdbcTemplate.execute
+	jdbcTemplate.batchUpdate
+	jdbcTemplate.query
