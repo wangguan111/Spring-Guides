@@ -29,5 +29,6 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-configuration-processor:2.0.1.RELEASE')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
