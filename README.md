@@ -20,3 +20,4 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	@Bean
+	CommandLineRunner
