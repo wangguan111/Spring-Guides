@@ -42,3 +42,6 @@ Whatever you're building, these guides are designed to get you productive as qui
 	@ExceptionHandler
 	AutoConfigureMockMvc
 	@MockBean
+
+
+6.Authenticating a User with LDAP
