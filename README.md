@@ -29,3 +29,16 @@ Whatever you're building, these guides are designed to get you productive as qui
 	jdbcTemplate.execute
 	jdbcTemplate.batchUpdate
 	jdbcTemplate.query
+
+
+5.Uploading Files
+
+	url:http://localhost:8080/
+
+	@ConfigurationProperties("storage")
+	@ResponseBody
+	ResponseEntity
+	RedirectAttributes
+	@ExceptionHandler
+	AutoConfigureMockMvc
+	@MockBean
