@@ -45,3 +45,6 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 
 6.Authenticating a User with LDAP
+
+	url:http://localhost:
+	username = ben and password = benspassword.
