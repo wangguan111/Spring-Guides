@@ -48,3 +48,4 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	url:http://localhost:
 	username = ben and password = benspassword.
+	ldapAuthentication
