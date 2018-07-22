@@ -91,3 +91,14 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 10.Validating Form Input
 
+	project validating
+
+	url:http://localhost:8080
+
+    @NotNull
+   	@Min(18)
+    @Size(min=2, max=30)
+	@GetMapping("/")
+	@PostMapping("/")
+	@Valid
+
