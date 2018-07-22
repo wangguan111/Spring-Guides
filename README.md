@@ -101,4 +101,21 @@ Whatever you're building, these guides are designed to get you productive as qui
 	@GetMapping("/")
 	@PostMapping("/")
 	@Valid
+	addViewControllers
+
+
+11.Building a RESTful Web Service with Spring Boot Actuator 
+
+	project demo
+	
+	url:http://localhost:8080/greeting
+	localhost:8080/greeting?name=xx
+
+	@RestController = @Controller + @ResponseBody(@Controller return String; @RestController return Json)
+	@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+	@TestPropertySource(properties = {"management.port=0"})
+    @LocalServerPort
+    @Value("${local.management.port}")
+	TestRestTemplate
+	then
 
