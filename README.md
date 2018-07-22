@@ -117,5 +117,18 @@ Whatever you're building, these guides are designed to get you productive as qui
     @LocalServerPort
     @Value("${local.management.port}")
 	TestRestTemplate
-	then
+	
 
+
+12.Messaging with JMS
+
+	@JmsListener(destination = "mailbox", containerFactory = "myFactory")
+	@EnableJms
+	JmsTemplate
+	convertAndSend
+	MappingJackson2MessageConverter
+	DefaultJmsListenerContainerFactory
+	DefaultJmsListenerContainerFactoryConfigurer
+	ConnectionFactory
+	JmsListenerContainerFactory
+	MessageConverter	
