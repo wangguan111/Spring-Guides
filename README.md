@@ -22,7 +22,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 3.Consuming a RESTful Web Service
 
-	project 
+	project demo
 
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	@Bean
@@ -32,6 +32,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 4.Accessing Relational Data using JDBC with Spring
 
 	project demo
+	
 	compile("com.h2database:h2")
 	jdbcTemplate.execute
 	jdbcTemplate.batchUpdate
@@ -42,7 +43,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	project uploading
 
-	url:http://localhost:8080/
+	url:http://localhost:8080
 
 	@ConfigurationProperties("storage")
 	@ResponseBody
@@ -57,7 +58,8 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	project LDAP
 
-	url:http://localhost:
+	url:http://localhost:8080
+
 	username = ben and password = benspassword.
 	ldapAuthentication
 
@@ -66,9 +68,17 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	project messaging
 
+	redis
+	@Bean
+	the order of the Bean	
+	CountDownLatch
+	MessageListenerAdapter
+	RedisConnectionFactory
+	PatternTopic
+	StringRedisTemplate
+	convertAndSend
+
 
 8.Messaging with RabbitMQ
 
 	project messaging
-
-
