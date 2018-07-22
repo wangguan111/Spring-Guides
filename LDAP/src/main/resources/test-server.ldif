@@ -104,8 +104,6 @@ sn: Cadet
 uid: space cadet
 userPassword: spacecadetspassword
 
-
-
 dn: cn=developers,ou=groups,dc=springframework,dc=org
 objectclass: top
 objectclass: groupOfUniqueNames
