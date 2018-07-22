@@ -3,6 +3,8 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 1.Building a RESTful Web Service
 
+	project demo
+
 	url:http://localhost:8080/greeting
 		http://localhost:8080/greeting?name=User
 
@@ -11,12 +13,16 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 2.Scheduling Tasks 
 
+	project demo
+
 	@EnableScheduling
 	@Scheduled(fixedRate = 5000)
 	@Component
 
 
 3.Consuming a RESTful Web Service
+
+	project 
 
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	@Bean
@@ -25,6 +31,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 4.Accessing Relational Data using JDBC with Spring
 
+	project demo
 	compile("com.h2database:h2")
 	jdbcTemplate.execute
 	jdbcTemplate.batchUpdate
@@ -32,6 +39,8 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 
 5.Uploading Files
+
+	project uploading
 
 	url:http://localhost:8080/
 
@@ -46,6 +55,20 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 6.Authenticating a User with LDAP
 
+	project LDAP
+
 	url:http://localhost:
 	username = ben and password = benspassword.
 	ldapAuthentication
+
+
+7.Messaging with Redis
+
+	project messaging
+
+
+8.Messaging with RabbitMQ
+
+	project messaging
+
+
