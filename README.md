@@ -122,6 +122,8 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 12.Messaging with JMS
 
+	project jms
+
 	@JmsListener(destination = "mailbox", containerFactory = "myFactory")
 	@EnableJms
 	JmsTemplate
@@ -136,8 +138,20 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 13.Creating a Batch Service
 
+	project batch
+
 	@EnableBatchProcessing
 	FlatFileItemReaderBuilder
 	ClassPathResource
 	JdbcBatchItemWriterBuilder
-	BeanPropertyItemSqlParameterSourceProvider	
+	BeanPropertyItemSqlParameterSourceProvider
+
+
+14.Securing a Web Application
+
+	project securing
+
+	url:http://localhost:8080
+
+	addViewControllers
+	@EnableWebSecurity
