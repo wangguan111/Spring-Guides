@@ -131,4 +131,13 @@ Whatever you're building, these guides are designed to get you productive as qui
 	DefaultJmsListenerContainerFactoryConfigurer
 	ConnectionFactory
 	JmsListenerContainerFactory
-	MessageConverter	
+	MessageConverter
+
+
+13.Creating a Batch Service
+
+	@EnableBatchProcessing
+	FlatFileItemReaderBuilder
+	ClassPathResource
+	JdbcBatchItemWriterBuilder
+	BeanPropertyItemSqlParameterSourceProvider	
