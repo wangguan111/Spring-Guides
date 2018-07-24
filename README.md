@@ -207,3 +207,10 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	
 20.Accessing Data with JPA
+
+	project jpa
+
+	CrudRepository
+	@Entity
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
