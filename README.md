@@ -177,3 +177,15 @@ Whatever you're building, these guides are designed to get you productive as qui
 	Traverson
 	MediaTypes
 	jsonPath
+
+
+16.Accessing Data in Pivotal GemFire
+
+	gemfire version
+
+
+17.Integrating Data
+
+	project integration
+
+	RSS Feed
