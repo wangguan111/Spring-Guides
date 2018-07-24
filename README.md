@@ -109,7 +109,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	project demo
 	
 	url:http://localhost:8080/greeting
-	localhost:8080/greeting?name=xx
+		http://localhost:8080/greeting?name=xx
 
 	@RestController = @Controller + @ResponseBody(@Controller return String; @RestController return Json)
 	@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -155,3 +155,25 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	addViewControllers
 	@EnableWebSecurity
+	UserDetailsService
+
+
+15.Building a Hypermedia-Driven RESTful Web Service
+
+	project hateoas
+	
+	url:http://localhost:8080/greeting
+		http://localhost:8080/greeting?name=xx
+
+	ResourceSupport
+	@JsonCreator
+	@JsonProperty
+	POJO(Plain Old Java Object)
+	HttpEntity<?>
+	ResponseEntity<?>
+	linkTo
+	methodOn
+	withSelfRel
+	Traverson
+	MediaTypes
+	jsonPath
