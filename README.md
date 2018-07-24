@@ -189,3 +189,21 @@ Whatever you're building, these guides are designed to get you productive as qui
 	project integration
 
 	RSS Feed
+
+
+18.Caching Data with Pivotal GemFire
+
+	gemfire version
+
+
+19.Managing Transactions
+
+	project transactions
+
+	@Transactional
+	JdbcTemplate 
+	String... persons
+	Assert
+
+	
+20.Accessing Data with JPA
