@@ -270,3 +270,23 @@ Whatever you're building, these guides are designed to get you productive as qui
  	actuator/health
  	UT
  	IT
+
+
+27.Using WebSocket to build an interactive web application
+
+	project smot
+
+	url:http://localhost:8080
+
+ 	@MessageMapping
+ 	@SendTo
+ 	HtmlUtils.htmlEscape
+ 	@EnableWebSocketMessageBroker
+ 	WebSocketMessageBrokerConfigurer
+ 	configureMessageBroker
+ 	registerStompEndpoints
+ 	MessageBrokerRegistry 
+ 	StompEndpointRegistry 
+ 	CountDownLatch
+ 	AtomicReference
+ 	StompSessionHandler
