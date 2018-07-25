@@ -214,3 +214,15 @@ Whatever you're building, these guides are designed to get you productive as qui
 	@Entity
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@DataJpaTest
+	TestEntityManager
+
+
+21.Accessing Data with MongoDB
+	
+	project mongodb
+
+	MongoRepository
+	findByFirstName
+	findByLastName
+	assertThat
