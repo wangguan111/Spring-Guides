@@ -226,3 +226,15 @@ Whatever you're building, these guides are designed to get you productive as qui
 	findByFirstName
 	findByLastName
 	assertThat
+
+
+22.Serving Web Content with Spring MVC
+
+	project hateoas
+	
+	url:http://localhost:8080/greeting
+		http://localhost:8080/greeting?name=xx
+
+	1.11.15 RestController vs 22 @Control
+	Thymeleaf
+	spring-boot-devtools
