@@ -29,7 +29,15 @@ Whatever you're building, these guides are designed to get you productive as qui
 	CommandLineRunner
 
 
-4.Accessing Relational Data using JDBC with Spring
+4.Building Java Projects with Gradle 
+
+	none
+
+5.Building Java Projects with Maven 
+
+	none
+
+6.Accessing Relational Data using JDBC with Spring
 
 	project demo
 	
@@ -39,7 +47,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	jdbcTemplate.query
 
 
-5.Uploading Files
+7.Uploading Files
 
 	project uploading
 
@@ -54,7 +62,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	@MockBean
 
 
-6.Authenticating a User with LDAP
+8.Authenticating a User with LDAP
 
 	project LDAP
 
@@ -64,7 +72,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	ldapAuthentication
 
 
-7.Messaging with Redis
+9.Messaging with Redis
 
 	project messaging
 
@@ -79,17 +87,17 @@ Whatever you're building, these guides are designed to get you productive as qui
 	convertAndSend
 
 
-8.Messaging with RabbitMQ
+10.Messaging with RabbitMQ
 
 	docker
 
 	
-9.Accessing Data with Neo4j
+11.Accessing Data with Neo4j
 
 	Neo4j
 
 
-10.Validating Form Input
+12.Validating Form Input
 
 	project validating
 
@@ -104,7 +112,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	addViewControllers
 
 
-11.Building a RESTful Web Service with Spring Boot Actuator 
+13.Building a RESTful Web Service with Spring Boot Actuator 
 
 	project demo
 	
@@ -120,7 +128,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	
 
 
-12.Messaging with JMS
+14.Messaging with JMS
 
 	project jms
 
@@ -136,7 +144,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	MessageConverter
 
 
-13.Creating a Batch Service
+15.Creating a Batch Service
 
 	project batch
 
@@ -147,7 +155,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	BeanPropertyItemSqlParameterSourceProvider
 
 
-14.Securing a Web Application
+16.Securing a Web Application
 
 	project securing
 
@@ -158,7 +166,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	UserDetailsService
 
 
-15.Building a Hypermedia-Driven RESTful Web Service
+17.Building a Hypermedia-Driven RESTful Web Service
 
 	project hateoas
 	
@@ -179,24 +187,24 @@ Whatever you're building, these guides are designed to get you productive as qui
 	jsonPath
 
 
-16.Accessing Data in Pivotal GemFire
+18.Accessing Data in Pivotal GemFire
 
 	gemfire version
 
 
-17.Integrating Data
+19.Integrating Data
 
 	project integration
 
 	RSS Feed
 
 
-18.Caching Data with Pivotal GemFire
+20.Caching Data with Pivotal GemFire
 
 	gemfire version
 
 
-19.Managing Transactions
+21.Managing Transactions
 
 	project transactions
 
@@ -206,7 +214,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	Assert
 
 	
-20.Accessing Data with JPA
+22.Accessing Data with JPA
 
 	project jpa
 
@@ -218,7 +226,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	TestEntityManager
 
 
-21.Accessing Data with MongoDB
+23.Accessing Data with MongoDB
 	
 	project mongodb
 
@@ -228,7 +236,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	assertThat
 
 
-22.Serving Web Content with Spring MVC
+24.Serving Web Content with Spring MVC
 
 	project hateoas
 	
@@ -240,12 +248,12 @@ Whatever you're building, these guides are designed to get you productive as qui
 	spring-boot-devtools
 
 
-23.Converting a Spring Boot JAR Application to a WAR
+25.Converting a Spring Boot JAR Application to a WAR
 
 	none
 
 
-24.Creating Asynchronous Methods
+26.Creating Asynchronous Methods
 
 	project asynchronous
 
@@ -260,10 +268,10 @@ Whatever you're building, these guides are designed to get you productive as qui
 	getForObject
 
 
-25.Handling Form Submission
+27.Handling Form Submission
 
 
-26.Building an Application with Spring Boot
+28.Building an Application with Spring Boot
 
 	project boot
 
@@ -272,7 +280,7 @@ Whatever you're building, these guides are designed to get you productive as qui
  	IT
 
 
-27.Using WebSocket to build an interactive web application
+29.Using WebSocket to build an interactive web application
 
 	project smot
 
@@ -290,3 +298,27 @@ Whatever you're building, these guides are designed to get you productive as qui
  	CountDownLatch
  	AtomicReference
  	StompSessionHandler
+
+
+ 30.Working a Getting Started guide with STS
+
+ 	none
+
+
+ 31.Consuming a RESTful Web Service with AngularJS
+
+ 	AngularJS
+
+
+ 32.Consuming a RESTful Web Service with rest.js
+
+ 	rest.js
+
+
+ 33.Consuming a RESTful Web Service with jQuery
+
+ 	jQuery
+
+
+ 34.Enabling Cross Origin Requests for a RESTful Web Service
+ 
