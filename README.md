@@ -338,3 +338,32 @@ Whatever you're building, these guides are designed to get you productive as qui
  	WebMvcConfigurer
  	CorsRegistry
  	@GetMapping = @RequestMapping(method = RequestMethod.GET)
+
+
+ 35.Building Spring YARN Projects with Gradle
+
+
+ 36.Building Spring YARN Projects with Maven
+
+
+ 37.Simple YARN Application
+
+
+ 38.Testing YARN Application
+
+
+ 39.Batch YARN Application
+
+
+ 40.Restartable Batch YARN Application
+
+
+ 41.Consuming a SOAP web service
+
+
+ 42.Accessing JPA Data with REST
+
+ 	project jpa_rest
+
+ 	@RepositoryRestResource(collectionResourceRel = "people", path = "people")
+ 	PagingAndSortingRepository
