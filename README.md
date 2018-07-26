@@ -328,3 +328,13 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  34.Enabling Cross Origin Requests for a RESTful Web Service
  
+ 	project cros
+
+	url:http://localhost:8080/greeting
+		http://localhost:8080/greeting?name=xx
+		http://localhost:9000
+
+ 	@CrossOrigin(origins = "http://localhost:9000")
+ 	WebMvcConfigurer
+ 	CorsRegistry
+ 	@GetMapping = @RequestMapping(method = RequestMethod.GET)
