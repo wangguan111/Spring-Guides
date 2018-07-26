@@ -64,7 +64,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 8.Authenticating a User with LDAP
 
-	project LDAP
+	project ldap
 
 	url:http://localhost:8080
 
