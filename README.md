@@ -367,3 +367,86 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  	@RepositoryRestResource(collectionResourceRel = "people", path = "people")
  	PagingAndSortingRepository
+
+
+ 43.Accessing Neo4j Data with REST
+
+ 	Neo4j
+ 	
+
+ 44.Accessing MongoDB Data with REST
+
+
+ 45.Accessing Data in Pivotal GemFire with REST
+
+
+ 46.Producing a SOAP web service
+
+
+ 47.Simple Single Project YARN Application
+
+
+ 48.Caching Data with Spring
+
+
+ 49.Deploying to Cloud Foundry from STS
+
+
+ 50.Spring Boot with Docker
+
+
+ 51.Working a Getting Started guide with IntelliJ IDEA 
+
+
+ 52.Creating CRUD UI with Vaadin 
+
+
+ 53.Service Registration and Discovery 
+
+
+ 54.Centralized Configuration 
+
+
+ 55.Routing and Filtering 
+
+
+ 56.Circuit Breaker 
+
+
+ 57.Client Side Load Balancing with Ribbon and Spring Cloud 
+
+
+ 58.Testing the Web Layer 
+
+
+ 59.Accessing data with MySQL 
+
+
+ 60.Creating a Multi Module Project 
+
+
+ 61.Creating API Documentation with Restdocs 
+
+
+ 62.Messaging with Google Cloud Pub/Sub
+
+
+ 63.Building a Reactive RESTful Web Service 
+
+
+ 64.Consumer Driven Contracts 
+
+
+ 65.Accessing Vault 
+
+
+ 66.Vault Configuration 
+
+
+ 67.Accessing Data Reactively with Redis
+
+
+ 68.Deploying a Spring Boot app to Azure 
+
+
+ 69.Building a Gateway 
