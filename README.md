@@ -412,6 +412,11 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  48.Caching Data with Spring
 
+ 	project caching
+
+ 	@EnableCaching
+ 	@Cacheable("books")
+
 
  49.Deploying to Cloud Foundry from STS
 
