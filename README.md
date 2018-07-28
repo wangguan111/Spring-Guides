@@ -355,7 +355,10 @@ Whatever you're building, these guides are designed to get you productive as qui
  	pom.xml
  	assembly.xml
 
+
  37.Simple YARN Application
+
+  	project yarn
 
 
  38.Testing YARN Application
