@@ -342,6 +342,11 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  35.Building Spring YARN Projects with Gradle
 
+ 	project yam-gradle
+
+ 	settings.gradle
+ 	build.gradle
+
 
  36.Building Spring YARN Projects with Maven
 
