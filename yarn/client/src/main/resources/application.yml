@@ -1,0 +1,3 @@
+spring:
+    yarn:
+        appName: yarn

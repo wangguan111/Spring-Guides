@@ -1,0 +1,84 @@
+// tag::snippetA[]
+buildscript {
+    ext {
+        springBootVersion = '2.0.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+// end::snippetA[]
+
+// tag::snippetB[]
+allprojects {
+    apply plugin: 'base'
+}
+// end::snippetB[]
+
+// tag::snippetC[]
+subprojects { subproject ->
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+    version =  '0.1.0'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        compile("org.springframework.data:spring-yarn-boot:2.4.0.RELEASE")
+    }
+    task copyJars(type: Copy) {
+        from "$buildDir/libs"
+        into "$rootDir/dist/target/dist/"
+        include "**/*.jar"
+    }
+    assemble.doLast {copyJars.execute()}
+}
+// end::snippetC[]
+
+// tag::snippetD[]
+project('client') {
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+}
+
+project('appmaster') {
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+}
+
+project('container') {
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+}
+// end::snippetD[]
+
+// tag::snippetE[]
+project('dist') {
+    dependencies {
+        compile project(":client")
+        compile project(":appmaster")
+        compile project(":container")
+        testCompile("org.springframework.data:spring-yarn-boot-test:2.4.0.RELEASE")
+        testCompile("org.hamcrest:hamcrest-core:1.2.1")
+        testCompile("org.hamcrest:hamcrest-library:1.2.1")
+    }
+    test.dependsOn(':client:assemble')
+    test.dependsOn(':appmaster:assemble')
+    test.dependsOn(':container:assemble')
+    clean.doLast {ant.delete(dir: "target")}
+    jar.enabled = false
+}
+// end::snippetE[]
+
+// tag::snippetF[]
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.8.1'
+}
+// end::snippetF[]
