@@ -363,6 +363,8 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  38.Testing YARN Application
 
+  	project yarn
+  	
 
  39.Batch YARN Application
 
@@ -371,6 +373,8 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 
  41.Consuming a SOAP web service
+
+ 	cannot access the soap web service
 
 
  42.Accessing JPA Data with REST
@@ -388,12 +392,20 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  44.Accessing MongoDB Data with REST
 
+ 	project mongodb_rest
+
+ 	@RepositoryRestResource(collectionResourceRel = "people", path = "people")
+
 
  45.Accessing Data in Pivotal GemFire with REST
+
+ 	gemfire version
 
 
  46.Producing a SOAP web service
 
+ 	cannot access the soap web service
+ 	
 
  47.Simple Single Project YARN Application
 
