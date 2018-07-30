@@ -420,14 +420,26 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  49.Deploying to Cloud Foundry from STS
 
+ 	none
+
 
  50.Spring Boot with Docker
+
+  	Docker 
 
 
  51.Working a Getting Started guide with IntelliJ IDEA 
 
+ 	none
+
 
  52.Creating CRUD UI with Vaadin 
+
+ 	project vaadin
+
+	url:http://localhost:8080
+
+	
 
 
  53.Service Registration and Discovery 
