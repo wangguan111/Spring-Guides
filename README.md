@@ -439,11 +439,22 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	url:http://localhost:8080
 
-	
+	@Route
+	VerticalLayout 
+	HorizontalLayout
+	@UIScope
 
 
  53.Service Registration and Discovery 
 
+	project eureka
+
+	url:http://localhost:8080/service-instances/a-bootiful-client
+
+	@EnableEurekaServer
+	@EnableDiscoveryClient
+	DiscoveryClient 
+	
 
  54.Centralized Configuration 
 
