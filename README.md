@@ -458,6 +458,14 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  54.Centralized Configuration 
 
+ 	project configuration
+
+ 	url:http://localhost:8080/message
+
+ 	@EnableConfigServer
+ 	@RefreshScope
+ 	@Value("${message:Hello default}")
+
 
  55.Routing and Filtering 
 
