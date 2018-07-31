@@ -469,6 +469,13 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  55.Routing and Filtering 
 
+ 	project routing-filtering
+
+ 	url:http://localhost:8090
+
+ 	@EnableZuulProxy
+ 	ZuulFilter 
+
 
  56.Circuit Breaker 
 
