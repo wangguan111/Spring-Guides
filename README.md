@@ -479,6 +479,11 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  56.Circuit Breaker 
 
+ 	project circuit-breaker
+
+   	@HystrixCommand(fallbackMethod = "reliable")
+	@EnableCircuitBreaker
+
 
  57.Client Side Load Balancing with Ribbon and Spring Cloud 
 
