@@ -504,7 +504,12 @@ Whatever you're building, these guides are designed to get you productive as qui
   	project test-web
 
 
- 59.Accessing data with MySQL 
+ 59.Accessing data with MySQL
+
+   	project mysql
+
+   	url:http://localhost:8080/demo/all
+   		http://localhost:8080/demo/add?name=First&email=someemail@someemailprovider.com
 
 
  60.Creating a Multi Module Project 
