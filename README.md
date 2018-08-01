@@ -487,6 +487,17 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  57.Client Side Load Balancing with Ribbon and Spring Cloud 
 
+ 	project ribbon-cloud
+
+ 	url:http://localhost:8888/hi
+ 		http://localhost:8888/hi?name=Orontes
+
+ 	@RibbonClient(name = "say-hello", configuration = SayHelloConfiguration.class)
+ 	@LoadBalanced
+ 	IClientConfig 
+ 	IPing 
+ 	IRule 
+
 
  58.Testing the Web Layer 
 

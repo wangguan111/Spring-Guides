@@ -1,0 +1,4 @@
+rootProject.name = 'ribbon-cloud'
+
+include 'say-hello'
+include 'user'
