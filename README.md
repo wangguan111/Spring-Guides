@@ -531,6 +531,11 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  61.Creating API Documentation with Restdocs 
 
+    project restdocs
+
+    @AutoConfigureRestDocs(outputDir = "target/snippets")
+  	testCompile("org.springframework.restdocs:spring-restdocs-mockmvc")
+
 
  62.Messaging with Google Cloud Pub/Sub
 
