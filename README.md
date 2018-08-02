@@ -514,6 +514,20 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  60.Creating a Multi Module Project 
 
+   	project nuti-module
+
+ 	url:http://localhost:8080
+
+ 	still lib build excepetion
+
+ 	@SpringBootApplication(scanBasePackages = "com")
+ 	@EnableConfigurationProperties(ServiceProperties.class)
+ 	dependencies 
+ 	{
+    	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    	compile('org.springframework.boot:spring-boot-configuration-processor:2.0.1.RELEASE')
+	}
+
 
  61.Creating API Documentation with Restdocs 
 

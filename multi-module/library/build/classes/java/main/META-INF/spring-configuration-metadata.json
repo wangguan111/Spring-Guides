@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.example.multimodule.ServiceProperties",
+      "name": "service",
+      "type": "com.example.multimodule.ServiceProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.example.multimodule.ServiceProperties",
+      "name": "service.message",
+      "type": "java.lang.String"
+    }
+  ]
+}
