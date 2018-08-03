@@ -560,13 +560,21 @@ Whatever you're building, these guides are designed to get you productive as qui
      http://localhost:8000/person/2
 
 
- 65.Accessing Vault 
+ 65.Accessing Vault
+
+ 	wait for install Vault 
 
 
  66.Vault Configuration 
 
+ 	wait for install Vault 
+
 
  67.Accessing Data Reactively with Redis
+
+ 	project reactive-redis
+
+ 	http://localhost:8080/coffees
 
 
  68.Deploying a Spring Boot app to Azure 
