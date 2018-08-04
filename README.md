@@ -9,7 +9,10 @@ Whatever you're building, these guides are designed to get you productive as qui
 		http://localhost:8080/greeting?name=User
 
 	1.A resource representation class,a resource controller
-	A key difference between a traditional MVC controller and the RESTful web service controller above is the way that the HTTP response body is created. Rather than relying on a view technology to perform server-side rendering of the greeting data to HTML, this RESTful web service controller simply populates and returns a Greeting object. The object data will be written directly to the HTTP response as JSON.
+	A key difference between a traditional MVC controller and the RESTful web service controller above is the way 
+	that the HTTP response body is created. Rather than relying on a view technology to perform server-side 
+	rendering of the greeting data to HTML, this RESTful web service controller simply populates and returns 
+	a Greeting object. The object data will be written directly to the HTTP response as JSON.
 		@RestController
 	2.Mock
 		@AutoConfigureMockMvc	
@@ -28,7 +31,8 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 3.Consuming a RESTful Web Service
 	
-	To consume a REST web service, RestTemplate makes interacting with most RESTful services a one-line incantation.it can even bind that data to custom domain types.
+	To consume a REST web service, RestTemplate makes interacting with most RESTful services a one-line incantation.
+	it can even bind that data to custom domain types.
 
 	project rest-template
 
@@ -72,14 +76,13 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	url:http://localhost:8080
 
-	@ConfigurationProperties("storage")
-	@ResponseBody
-	ResponseEntity
-	RedirectAttributes
-	@ExceptionHandler
-	@AutoConfigureMockMvc
-	@MockBean
-
+	1.@ConfigurationProperties("storage") + StorageProperties.location="upload-dir" 
+	2.@Controller + @ResponseBody + ResponseEntity
+		esponseEntity.ok().header().body()
+	3.RedirectAttributes.addFlashAttribute
+	4.@ExceptionHandler
+	5.@AutoConfigureMockMvc + MockMvc + @MockBean
+	
 
 8.Authenticating a User with LDAP
 
