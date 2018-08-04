@@ -238,7 +238,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 24.Serving Web Content with Spring MVC
 
-	project hateoas
+	project devtools
 	
 	url:http://localhost:8080/greeting
 		http://localhost:8080/greeting?name=xx
@@ -288,7 +288,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 29.Using WebSocket to build an interactive web application
 
-	project smot
+	project stomp
 
 	url:http://localhost:8080
 
@@ -554,7 +554,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  64.Consumer Driven Contracts 
 
-     project reactive-rest
+     project contract-rest
 
      http://localhost:8000/person/1
      http://localhost:8000/person/2
