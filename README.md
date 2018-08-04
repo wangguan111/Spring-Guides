@@ -8,46 +8,65 @@ Whatever you're building, these guides are designed to get you productive as qui
 	url:http://localhost:8080/greeting
 		http://localhost:8080/greeting?name=User
 
-	@RestController
+	1.A resource representation class,a resource controller
+	A key difference between a traditional MVC controller and the RESTful web service controller above is the way that the HTTP response body is created. Rather than relying on a view technology to perform server-side rendering of the greeting data to HTML, this RESTful web service controller simply populates and returns a Greeting object. The object data will be written directly to the HTTP response as JSON.
+		@RestController
+	2.Mock
+		@AutoConfigureMockMvc	
 
 
 2.Scheduling Tasks 
 
 	project demo
 
-	@EnableScheduling
-	@Scheduled(fixedRate = 5000)
-	@Component
+	1.@EnableScheduling ensures that a background task executor is created. Without it, nothing gets scheduled.
+		@EnableScheduling
+		@Scheduled(fixedRate = 5000)
+	2.@
+		@Component = <bean id="" class=""/>）in xml
 
 
 3.Consuming a RESTful Web Service
+	
+	To consume a REST web service, RestTemplate makes interacting with most RESTful services a one-line incantation.it can even bind that data to custom domain types.
 
-	project demo
+	project rest-template
 
-	@JsonIgnoreProperties(ignoreUnknown = true)
-	@Bean
-	CommandLineRunner
+	1.@JsonIgnoreProperties(ignoreUnknown = true)
+	2.@Bean
+	3.CommandLineRunner
+	4.RestTemplate
+		RestTemplateBuilder
+		RestTemplate.getForObject
 
 
 4.Building Java Projects with Gradle 
 
 	none
 
+
 5.Building Java Projects with Maven 
 
 	none
 
+
 6.Accessing Relational Data using JDBC with Spring
 
-	project demo
+	Store and retrieve data by JdbcTemplate and H2
+
+	project jdbc
 	
-	compile("com.h2database:h2")
-	jdbcTemplate.execute
-	jdbcTemplate.batchUpdate
-	jdbcTemplate.query
+	1.compile("com.h2database:h2")
+	2.Arrays.asList
+	3.jdbcTemplate
+		jdbcTemplate.execute
+		jdbcTemplate.batchUpdate
+		jdbcTemplate.query
 
 
 7.Uploading Files
+
+	a file upload controller
 
 	project uploading
 
@@ -58,7 +77,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	ResponseEntity
 	RedirectAttributes
 	@ExceptionHandler
-	AutoConfigureMockMvc
+	@AutoConfigureMockMvc
 	@MockBean
 
 
@@ -89,7 +108,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 10.Messaging with RabbitMQ
 
-	docker
+	need docker, but window10 home cannot install
 
 	
 11.Accessing Data with Neo4j
@@ -114,18 +133,26 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 13.Building a RESTful Web Service with Spring Boot Actuator 
 
-	project demo
+	project actuator
 	
-	url:http://localhost:8080/greeting
-		http://localhost:8080/greeting?name=xx
+	url:http://localhost:9000/hello-world
+		      localhost:9001/actuator/health
 
-	@RestController = @Controller + @ResponseBody(@Controller return String; @RestController return Json)
-	@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-	@TestPropertySource(properties = {"management.port=0"})
-    @LocalServerPort
-    @Value("${local.management.port}")
-	TestRestTemplate
-	
+	1.Spring Boot Actuator:Monitoring and Management over HTTP
+		management.server.port: 9001
+		management.server.address: 127.0.0.1	
+	2.Switch to a different server port
+		server.port: 9000
+	3.@RestController = @Controller + @ResponseBody(@Controller return String; @RestController return Json)
+	4.Control_UT_Test 
+		https://www.jianshu.com/p/72b19e24a602
+		1.@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT) + TestRestTemplate
+		2.@WebMvcTest(controllers = xxx.class) + MockMvc 
+		3.@SpringBootTest() + @AutoConfigureMockMvc + MockMvc 	
+	5.@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+	6.@LocalServerPort
+	7.@TestPropertySource(properties = {"management.port=0"}) + @Value("${local.management.port}")
+	8.TestRestTemplate
 
 
 14.Messaging with JMS
@@ -577,7 +604,9 @@ Whatever you're building, these guides are designed to get you productive as qui
  	http://localhost:8080/coffees
 
 
- 68.Deploying a Spring Boot app to Azure 
+ 68.Deploying a Spring Boot app to Azure
+
+ 	Azure is not free
 
 
  69.Building a Gateway 
