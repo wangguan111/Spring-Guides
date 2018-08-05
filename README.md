@@ -90,23 +90,50 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	url:http://localhost:8080
 
-	username = ben and password = benspassword.
-	ldapAuthentication
+	1.username = ben and password = benspassword.
+	2.HttpSecurity
+		http
+			.authorizeRequests()
+				.antMatchers("/", "/home").permitAll()	/and/hone no need authenticated, else need authenticated
+				.anyRequest().fullyAuthenticated()	all no need authenticated	
+				.anyRequest().authenticated() all need authenticated
+				.and()
+			.formLogin()
+				.loginPage("/login")
+				 .permitAll()
+				 .and()
+		    .logout()
+	3.ldapAuthentication
+		auth
+			.ldapAuthentication()
+				.userDnPatterns("uid={0},ou=people")
+				.groupSearchBase("ou=groups")
+				.contextSource()
+					.url("ldap://localhost:8389/dc=springframework,dc=org")
+					.and()
+				.passwordCompare()
+					.passwordEncoder(new LdapShaPasswordEncoder())
+					.passwordAttribute("userPassword");
+	4.config
+	spring.ldap.embedded.ldif=classpath:test-server.ldif
+	spring.ldap.embedded.base-dn=dc=springframework,dc=org
+	spring.ldap.embedded.port=8389
 
 
 9.Messaging with Redis
 
 	project messaging
 
-	redis
-	@Bean
-	the order of the Bean	
-	CountDownLatch
-	MessageListenerAdapter
-	RedisConnectionFactory
-	PatternTopic
-	StringRedisTemplate
-	convertAndSend
+	1.CountDownLatch
+	2.MessageListenerAdapter
+	3.RedisMessageListenerContainer
+	4.RedisConnectionFactory
+	5.PatternTopic
+	6.StringRedisTemplate
+	7.ApplicationContext
+	8.redis
+	9.@Bean
+	10.convertAndSend
 
 
 10.Messaging with RabbitMQ
