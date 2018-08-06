@@ -122,7 +122,13 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 9.Messaging with Redis
 
-	project messaging
+	project redis
+
+	A connection factory + A message listener container + A Redis template
+	The connection factory drives both the template and the message listener container,
+	enabling them to connect to the Redis server
+
+	MessageListenerAdapter + RedisConnectionFactory -> RedisMessageListenerContainer -> StringRedisTemplate
 
 	1.CountDownLatch
 	2.MessageListenerAdapter
@@ -131,16 +137,37 @@ Whatever you're building, these guides are designed to get you productive as qui
 	5.PatternTopic
 	6.StringRedisTemplate
 	7.ApplicationContext
-	8.redis
+	8.redis 
+	Redis is an open source, BSD-licensed, key-value data store that also comes with a messaging system
 	9.@Bean
 	10.convertAndSend
 
 
 10.Messaging with RabbitMQ
 
-	need docker, but window10 home cannot install
+	project rabbitmq
 
-	
+	A message listener container + Declare the queue, the exchange, and the binding between them + 
+	A component to send some messages to test the listener
+
+	Queue + TopicExchange -> Binding -> MessageListenerAdapter + ConnectionFactory -> SimpleMessageListenerContainer -> RabbitTemplate
+
+	RabbitMQ is an AMQP server.JMS queues and AMQP queues have different semantics. 
+	For example, JMS sends queued messages to only one consumer. While AMQP queues do the same thing,
+	AMQP producers don’t send messages directly to queues. Instead, a message is sent to an exchange,
+	which can go to a single queue, or fanout to multiple queues, emulating the concept of JMS topics.
+
+	1.Docker Compose
+	2.Queue
+	3.TopicExchange 
+	4.Binding 
+	5.BindingBuilder
+		BindingBuilder.bind(queue).to(exchange).with("foo.bar.#");
+	6.SimpleMessageListenerContainer 
+	7.RabbitTemplate 
+	8.TimeUnit
+
+
 11.Accessing Data with Neo4j
 
 	Neo4j
@@ -150,15 +177,17 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	project validating
 
+	configuring a web application form to support validation
+
 	url:http://localhost:8080
 
-    @NotNull
-   	@Min(18)
-    @Size(min=2, max=30)
-	@GetMapping("/")
-	@PostMapping("/")
-	@Valid
-	addViewControllers
+    1.@NotNull
+   	2.@Min(18)
+    3.@Size(min=2, max=30)
+	4.@GetMapping("/")
+	5.@PostMapping("/")
+	6.@Valid
+	7.addViewControllers
 
 
 13.Building a RESTful Web Service with Spring Boot Actuator 
@@ -189,38 +218,87 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	project jms
 
-	@JmsListener(destination = "mailbox", containerFactory = "myFactory")
-	@EnableJms
-	JmsTemplate
-	convertAndSend
-	MappingJackson2MessageConverter
-	DefaultJmsListenerContainerFactory
-	DefaultJmsListenerContainerFactoryConfigurer
-	ConnectionFactory
-	JmsListenerContainerFactory
-	MessageConverter
+	publishing and subscribing to messages using a JMS broker.
+
+	MessageConverter -> ConnectionFactory + DefaultJmsListenerContainerFactoryConfigurer 
+	-> DefaultJmsListenerContainerFactory ->JmsTemplate
+
+	1.@JmsListener(destination = "mailbox", containerFactory = "myFactory")
+	2.@EnableJms
+	3.JmsTemplate
+	4.convertAndSend
+	5.MappingJackson2MessageConverter
+	6.DefaultJmsListenerContainerFactory
+	7.DefaultJmsListenerContainerFactoryConfigurer
+	8.ConnectionFactory
+	9.JmsListenerContainerFactory
+	10.MessageConverter
 
 
 15.Creating a Batch Service
 
 	project batch
 
-	@EnableBatchProcessing
-	FlatFileItemReaderBuilder
-	ClassPathResource
-	JdbcBatchItemWriterBuilder
-	BeanPropertyItemSqlParameterSourceProvider
+	Imports data from a CSV spreadsheet, transforms it with custom code, 
+	and stores the final results in a database.
+
+	1.@EnableBatchProcessing
+	2.FlatFileItemReaderBuilder<Person>()
+	     .name("personItemReader")
+         .resource(new ClassPathResource("sample-data.csv"))
+         .delimited()
+         .names(new String[]{"firstName", "lastName"})
+         .fieldSetMapper(new BeanWrapperFieldSetMapper<Person>() {{
+           setTargetType(Person.class);
+         }})
+         .build();
+	3.JdbcBatchItemWriterBuilder<Person>()
+	     .itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
+         .sql("INSERT INTO people (first_name, last_name) VALUES (:firstName, :lastName)")
+         .dataSource(dataSource)
+         .build();
+    4.stepBuilderFactory.get("step1")
+            .<Person, Person> chunk(10)
+            .reader(reader())
+            .processor(processor())
+            .writer(writer)
+            .build();
+    5.jobBuilderFactory.get("importUserJob")
+            .incrementer(new RunIdIncrementer())
+            .listener(listener)
+            .flow(step1)
+            .end()
+            .build();
+     6.JobExecution 
 
 
 16.Securing a Web Application
 
 	project securing
 
+	Creating a simple web application with resources that are protected by Spring Security.
+
 	url:http://localhost:8080
 
-	addViewControllers
-	@EnableWebSecurity
-	UserDetailsService
+	1.addViewControllers
+	2.@EnableWebSecurity
+    3.http
+    	.authorizeRequests()
+        	.antMatchers("/", "/home").permitAll()
+        	.anyRequest().authenticated()
+        	.and()
+    	.formLogin()
+        	.loginPage("/login")
+        	.permitAll()
+        	.and()
+    	.logout()
+        	.permitAll();
+	4.User.withDefaultPasswordEncoder()
+		.username("user")
+		.password("password")
+		.roles("USER")
+		.build();
+	5.InMemoryUserDetailsManager
 
 
 17.Building a Hypermedia-Driven RESTful Web Service

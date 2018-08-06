@@ -19,6 +19,7 @@ import org.springframework.jms.support.converter.MessageType;
 @EnableJms
 public class JmsApplication {
 
+    //2.
     @Bean
     public JmsListenerContainerFactory<?> myFactory(ConnectionFactory connectionFactory, DefaultJmsListenerContainerFactoryConfigurer configurer) {
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
@@ -28,6 +29,7 @@ public class JmsApplication {
         return factory;
     }
 
+    //1.
     @Bean // Serialize message content to json using TextMessage
     public MessageConverter jacksonJmsMessageConverter() {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
