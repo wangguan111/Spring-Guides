@@ -94,7 +94,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	2.HttpSecurity
 		http
 			.authorizeRequests()
-				.antMatchers("/", "/home").permitAll()	/and/hone no need authenticated, else need authenticated
+				.antMatchers("/", "/home").permitAll()	/and/hone no need authenticated
 				.anyRequest().fullyAuthenticated()	all no need authenticated	
 				.anyRequest().authenticated() all need authenticated
 				.and()
@@ -150,7 +150,8 @@ Whatever you're building, these guides are designed to get you productive as qui
 	A message listener container + Declare the queue, the exchange, and the binding between them + 
 	A component to send some messages to test the listener
 
-	Queue + TopicExchange -> Binding -> MessageListenerAdapter + ConnectionFactory -> SimpleMessageListenerContainer -> RabbitTemplate
+	Queue + TopicExchange -> Binding -> MessageListenerAdapter + ConnectionFactory
+	-> SimpleMessageListenerContainer -> RabbitTemplate
 
 	RabbitMQ is an AMQP server.JMS queues and AMQP queues have different semantics. 
 	For example, JMS sends queued messages to only one consumer. While AMQP queues do the same thing,
@@ -170,7 +171,9 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 11.Accessing Data with Neo4j
 
-	Neo4j
+	project neo4j
+
+	 Using Spring Data Neo4j to build an application that stores data in and retrieves it from Neo4j, a graph-based database.
 
 
 12.Validating Form Input
