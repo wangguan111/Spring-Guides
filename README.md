@@ -3,7 +3,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 1.Building a RESTful Web Service
 
-	project demo
+	project demo-rest
 
 	url:http://localhost:8080/greeting
 		http://localhost:8080/greeting?name=User
@@ -20,7 +20,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 2.Scheduling Tasks 
 
-	project demo
+	project demo-rest
 
 	1.@EnableScheduling ensures that a background task executor is created. Without it, nothing gets scheduled.
 		@EnableScheduling
@@ -34,7 +34,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 	To consume a REST web service, RestTemplate makes interacting with most RESTful services a one-line incantation.
 	it can even bind that data to custom domain types.
 
-	project rest-template
+	project resttemplate-rest
 
 	1.@JsonIgnoreProperties(ignoreUnknown = true)
 	2.@Bean
@@ -86,7 +86,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 8.Authenticating a User with LDAP
 
-	project ldap
+	project ldap-rest
 
 	url:http://localhost:8080
 
@@ -171,9 +171,18 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 11.Accessing Data with Neo4j
 
+	not install neo4j, only buid ,cannot run
+
 	project neo4j
 
-	 Using Spring Data Neo4j to build an application that stores data in and retrieves it from Neo4j, a graph-based database.
+	 Using Spring Data Neo4j to build an application that stores data in and retrieves it from Neo4j,
+	 a graph-based database.
+
+	 1.@NodeEntity
+	 2.@Id @GeneratedValue
+	 3.@Relationship(type = "TEAMMATE", direction = Relationship.UNDIRECTED)
+	 4.CrudRepository
+	 5.@EnableNeo4jRepositories
 
 
 12.Validating Form Input
@@ -306,23 +315,24 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 17.Building a Hypermedia-Driven RESTful Web Service
 
-	project hateoas
+	project hateoas-rest
+
+	Hypermedia is an important aspect of REST. It allows you to build services that decouple client and 
+	server to a large extent and allow them to evolve independently. The representations returned for 
+	REST resources contain not only data, but links to related resources. Thus the design of the 
+	representations is crucial to the design of the overall service.
 	
 	url:http://localhost:8080/greeting
 		http://localhost:8080/greeting?name=xx
 
-	ResourceSupport
-	@JsonCreator
-	@JsonProperty
-	POJO(Plain Old Java Object)
-	HttpEntity<?>
-	ResponseEntity<?>
-	linkTo
-	methodOn
-	withSelfRel
-	Traverson
-	MediaTypes
-	jsonPath
+	1.ResourceSupport
+	2.@JsonCreator - signal on how Jackson can create an instance of this POJO
+	3.@JsonProperty - - clearly marks what field Jackson should put this constructor argument into
+	4.POJO(Plain Old Java Object)
+	5.HttpEntity<?> - ResponseEntity<?>
+	6. greeting.add(linkTo(methodOn(GreetingController.class).greeting(name)).withSelfRel());
+	7.Traverson traverson = 
+	new Traverson(new URI("http://localhost:" + this.port + "/greeting"), MediaTypes.HAL_JSON);
 
 
 18.Accessing Data in Pivotal GemFire
