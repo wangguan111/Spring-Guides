@@ -392,32 +392,34 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	project transactions
 
-	@Transactional
-	JdbcTemplate 
-	String... persons
-	Assert
+	build a simple JDBC application wherein you make database operations transactional without having to write specialized JDBC code
+
+	1.@Transactional
+	2.JdbcTemplate 
+	3.String... persons
 
 	
 22.Accessing Data with JPA
 
 	project jpa
 
-	CrudRepository
-	@Entity
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@DataJpaTest
-	TestEntityManager
+	build an application that stores Customer POJOs in a memory-based database.
+
+	1.CrudRepository
+	2.@Entity
+	3.@Id + @GeneratedValue(strategy=GenerationType.AUTO)
+	4.@DataJpaTest
+	5.TestEntityManager
 
 
 23.Accessing Data with MongoDB
 	
 	project mongodb
 
-	MongoRepository
-	findByFirstName
-	findByLastName
-	assertThat
+	store Customer POJOs in a MongoDB database using Spring Data MongoDB.
+
+	1.MongoRepository
+	2.assertThat
 
 
 24.Serving Web Content with Spring MVC
@@ -427,9 +429,12 @@ Whatever you're building, these guides are designed to get you productive as qui
 	url:http://localhost:8080/greeting
 		http://localhost:8080/greeting?name=xx
 
-	1.11.15 RestController vs 22 @Control
-	Thymeleaf
-	spring-boot-devtools
+	1.Thymeleaf
+	2.spring-boot-devtools
+		Enable hot swapping
+		Switches template engines to disable caching
+		Enables LiveReload to refresh browser automatically
+		Other reasonable defaults based on development instead of production
 
 
 25.Converting a Spring Boot JAR Application to a WAR
@@ -441,33 +446,39 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	project asynchronous
 
-	@Service
-	RestTemplateBuilder
-	@Async
-	CompletableFuture
-	InterruptedException
-	@EnableAsync
-	Executor
-	ThreadPoolTaskExecutor
-	getForObject
+	build a lookup service that queries GitHub user information and retrieves data through GitHub’s API. 
+	One approach to scaling services is to run expensive jobs in the background and wait for the results
+	using Java’s CompletableFuture interface. Java’s CompletableFuture is an evolution from the regular Future. 
+	It makes it easy to pipeline multiple asynchronous operations merging them into a single asynchronous computation.
+
+	1.@Service
+	2.RestTemplateBuilder
+	3.@Async
+	4.CompletableFuture
+	5.InterruptedException
+	6.@EnableAsync
+	7.Executor
+	8.ThreadPoolTaskExecutor
+	9.getForObject
 
 
 27.Handling Form Submission
 
 	project submission
 
+	using Spring to create and submit a web form.
+
 	url:http://localhost:8080/greeting
 
-	@TestPropertySource(properties = "logging.level.org.springframework.web=DEBUG")
+	1.@TestPropertySource(properties = "logging.level.org.springframework.web=DEBUG")
 
 
 28.Building an Application with Spring Boot
 
-	project boot
+	project boot-rest
 
- 	actuator/health
- 	UT
- 	IT
+ 	1.actuator
+ 	2.UT + IT
 
 
 29.Using WebSocket to build an interactive web application
