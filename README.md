@@ -337,19 +337,55 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 18.Accessing Data in Pivotal GemFire
 
-	gemfire version
+	project pivotal-gemfire
+
+	gemfire version is only aviable below spring-boot 2.0, cannot build and run 
+
+	Pivotal GemFire is a In-Memory Data Grid (IMDG) that maps data to Regions. It is possible to configure
+	distributed Regions that partition and replicate data across multiple nodes in a cluster. 
+	using a LOCAL Region so you don’t have to set up anything extra, such as an entire cluster of servers.
+
+	1.@Region(value = "People")
+	2.@Id + @Getter
+	3.@PersistenceConstructor
+	4.@Trace
+	5.@EnableGemfireRepositories
+	6.@ClientCacheApplication(name = "AccessingDataGemFireApplication", logLevel = "error")
+	7.@EnableEntityDefinedRegions(basePackageClasses = Person.class,
+        clientRegionShortcut = ClientRegionShortcut.LOCAL)    
 
 
 19.Integrating Data
 
 	project integration
 
-	RSS Feed
+	using Spring Integration to create a simple application that retrieves data from an RSS Feed (Spring Blog),
+	manipulates the data, and then writes it to a file. This guide uses traditional Spring Integration XML 
+	configuration; other guides exist showing the use of JavaConfig/DSL with and without JDK 8 Lambda expressions.
+
+	1.@ImportResource("/integration.xml")
+	2.RSS Feed
+	3.SourcePollingChannelAdapter
+	4.MessageChannel 
+	5.SyndEntryImpl 
 
 
 20.Caching Data with Pivotal GemFire
 
-	gemfire version
+	project pivotal-gemfire-caching
+
+	gemfire version is only aviable below spring-boot 2.0, cannot build and run
+
+	fetching the same quote again eliminates the expensive call to the Quote service since Spring’s Cache Abstraction,
+	backed by Pivotal GemFire, will be used to cache the results, given the same request.
+
+	1.@Data + @JsonIgnoreProperties(ignoreUnknown = true)
+	2.@JsonProperty("xxx")
+	3.@Cacheable("xxx")
+	4.@CachePut(cacheNames = xxx", key = "#result.id")
+	5.Optional.ofNullable(this.quoteServiceTemplate.getForObject(URL, QuoteResponse.class, urlVariables))
+			.map(QuoteResponse::getQuote)
+			.orElse(null);
 
 
 21.Managing Transactions
