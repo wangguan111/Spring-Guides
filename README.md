@@ -392,7 +392,8 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	project transactions
 
-	build a simple JDBC application wherein you make database operations transactional without having to write specialized JDBC code
+	build a simple JDBC application wherein you make database operations transactional without having to 
+	write specialized JDBC code
 
 	1.@Transactional
 	2.JdbcTemplate 
@@ -485,21 +486,23 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	project stomp
 
+	Through the process of creating a "hello world" application that sends messages back and forth,
+	between a browser and the server. WebSocket is a very thin, lightweight layer above TCP. 
+	It makes it very suitable to use "subprotocols" to embed messages. In this guide we’ll dive in 
+	and use STOMP messaging with Spring to create an interactive web application.
+
 	url:http://localhost:8080
 
- 	@MessageMapping
- 	@SendTo
- 	HtmlUtils.htmlEscape
- 	@EnableWebSocketMessageBroker
- 	WebSocketMessageBrokerConfigurer
- 	configureMessageBroker
- 	registerStompEndpoints
- 	MessageBrokerRegistry 
- 	StompEndpointRegistry 
- 	CountDownLatch
- 	AtomicReference
- 	StompSessionHandler
-
+ 	1.@MessageMapping + @SendTo
+ 	2.HtmlUtils.htmlEscape
+ 	3.@EnableWebSocketMessageBroker
+ 	4.WebSocketMessageBrokerConfigurer
+ 	5.configureMessageBroker(MessageBrokerRegistry config)
+ 		config.enableSimpleBroker("/topic");
+        config.setApplicationDestinationPrefixes("/app");
+ 	6.registerStompEndpoints(StompEndpointRegistry registry) 
+ 		registry.addEndpoint("/gs-guide-websocket").withSockJS()
+ 		
 
  30.Working a Getting Started guide with STS
 
