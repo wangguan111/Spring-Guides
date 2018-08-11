@@ -178,11 +178,23 @@ Whatever you're building, these guides are designed to get you productive as qui
 	 Using Spring Data Neo4j to build an application that stores data in and retrieves it from Neo4j,
 	 a graph-based database.
 
+ 	 11.neo4j
+	 @NodeEntity + @Id @GeneratedValue
+	 + interface PersonRepository extends CrudRepository<Person, Long>
+	 + @EnableNeo4jRepositories
+
+	 43.neo4j-rest
+	 @NodeEntity + @Id @GeneratedValue
+	 + @RepositoryRestResource(collectionResourceRel = "people", path = "people")
+	 + interface PersonRepository extends PagingAndSortingRepository<Person, Long>
+	 + @EnableNeo4jRepositories
+
 	 1.@NodeEntity
 	 2.@Id @GeneratedValue
 	 3.@Relationship(type = "TEAMMATE", direction = Relationship.UNDIRECTED)
 	 4.CrudRepository
 	 5.@EnableNeo4jRepositories
+	 6.spring.data.neo4j.username=neo4 + spring.data.neo4j.password=secret
 
 
 12.Validating Form Input
@@ -315,7 +327,9 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 17.Building a Hypermedia-Driven RESTful Web Service
 
-	project hateoas-rest
+	project hypermedia-rest
+
+	HATEOAS
 
 	Hypermedia is an important aspect of REST. It allows you to build services that decouple client and 
 	server to a large extent and allow them to evolve independently. The representations returned for 
@@ -325,12 +339,29 @@ Whatever you're building, these guides are designed to get you productive as qui
 	url:http://localhost:8080/greeting
 		http://localhost:8080/greeting?name=xx
 
+	17.hypermedia-rest
+	ResourceSupport + @JsonCreator + @JsonProperty 
+	+ linlkto().withSelfRel()
+
+	22.jpa
+	@Entity + @Id + @GeneratedValue(strategy = GenerationType.AUTO) 
+	+ interface CustomerRepository extends CrudRepository<Customer, Long> 
+
+	42.hypermedia_jpa_rest
+ 	@Entity + @Id + @GeneratedValue(strategy = GenerationType.AUTO) 
+ 	+ @RepositoryRestResource(collectionResourceRel = "people", path = "people")
+ 	+ interface PersonRepository extends PagingAndSortingRepository<Person, Long>
+
 	1.ResourceSupport
 	2.@JsonCreator - signal on how Jackson can create an instance of this POJO
 	3.@JsonProperty - - clearly marks what field Jackson should put this constructor argument into
 	4.POJO(Plain Old Java Object)
 	5.HttpEntity<?> - ResponseEntity<?>
 	6. greeting.add(linkTo(methodOn(GreetingController.class).greeting(name)).withSelfRel());
+		Both linkTo(…) and methodOn(…) are static methods on ControllerLinkBuilder that allow you to 
+		fake a method invocation on the controller. The LinkBuilder returned will have inspected the 
+		controller method’s mapping annotation to build up exactly the URI the method is mapped to.
+		withSelfRel() creates a Link instance that you add to the Greeting representation model.
 	7.Traverson traverson = 
 	new Traverson(new URI("http://localhost:" + this.port + "/greeting"), MediaTypes.HAL_JSON);
 
@@ -344,6 +375,24 @@ Whatever you're building, these guides are designed to get you productive as qui
 	Pivotal GemFire is a In-Memory Data Grid (IMDG) that maps data to Regions. It is possible to configure
 	distributed Regions that partition and replicate data across multiple nodes in a cluster. 
 	using a LOCAL Region so you don’t have to set up anything extra, such as an entire cluster of servers.
+
+
+	18.gemfire
+ 	@Region(value = "People") + @PersistenceConstructor
+ 	+ interface PersonRepository extends CrudRepository<Person, String>
+ 	+ @ClientCacheApplication(name = "AccessingGemFireDataRestApplication", logLevel = "error")
+	+ @EnableEntityDefinedRegions(basePackageClasses = Person.class,
+	  clientRegionShortcut = ClientRegionShortcut.LOCAL)
+	+ @EnableGemfireRepositories
+
+ 	45.gemfire_rest
+ 	@Data + @Region("People") + @PersistenceConstructor
+ 	+ @RepositoryRestResource(collectionResourceRel = "people", path = "people")
+ 	+ interface PersonRepository extends CrudRepository<Person, Long>
+ 	+ @ClientCacheApplication(name = "AccessingGemFireDataRestApplication", logLevel = "error")
+	+ @EnableEntityDefinedRegions(basePackageClasses = Person.class,
+	  clientRegionShortcut = ClientRegionShortcut.LOCAL)
+	+ @EnableGemfireRepositories
 
 	1.@Region(value = "People")
 	2.@Id + @Getter
@@ -379,6 +428,9 @@ Whatever you're building, these guides are designed to get you productive as qui
 	fetching the same quote again eliminates the expensive call to the Quote service since Spring’s Cache Abstraction,
 	backed by Pivotal GemFire, will be used to cache the results, given the same request.
 
+	20.pivotal-gemfire-caching
+ 	48.caching
+
 	1.@Data + @JsonIgnoreProperties(ignoreUnknown = true)
 	2.@JsonProperty("xxx")
 	3.@Cacheable("xxx")
@@ -406,6 +458,19 @@ Whatever you're building, these guides are designed to get you productive as qui
 
 	build an application that stores Customer POJOs in a memory-based database.
 
+	17.hypermedia-rest
+	ResourceSupport + @JsonCreator + @JsonProperty 
+	+ linlkto().withSelfRel()
+
+	22.jpa
+	@Entity + @Id + @GeneratedValue(strategy = GenerationType.AUTO) 
+	+ interface CustomerRepository extends CrudRepository<Customer, Long> 
+
+	42.hypermedia_jpa_rest
+ 	@Entity + @Id + @GeneratedValue(strategy = GenerationType.AUTO) 
+ 	+ @RepositoryRestResource(collectionResourceRel = "people", path = "people")
+ 	+ interface PersonRepository extends PagingAndSortingRepository<Person, Long>
+
 	1.CrudRepository
 	2.@Entity
 	3.@Id + @GeneratedValue(strategy=GenerationType.AUTO)
@@ -418,6 +483,15 @@ Whatever you're building, these guides are designed to get you productive as qui
 	project mongodb
 
 	store Customer POJOs in a MongoDB database using Spring Data MongoDB.
+
+	23.mongodb
+	 @Id
+	+ interface CustomerRepository extends MongoRepository<Customer, String>
+
+	44.mongodb_rest
+	@Id 
+	+ @RepositoryRestResource(collectionResourceRel = "people", path = "people")
+    + interface PersonRepository extends MongoRepository<Person, String>
 
 	1.MongoRepository
 	2.assertThat
@@ -502,7 +576,7 @@ Whatever you're building, these guides are designed to get you productive as qui
         config.setApplicationDestinationPrefixes("/app");
  	6.registerStompEndpoints(StompEndpointRegistry registry) 
  		registry.addEndpoint("/gs-guide-websocket").withSockJS()
- 		
+
 
  30.Working a Getting Started guide with STS
 
@@ -526,16 +600,21 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  34.Enabling Cross Origin Requests for a RESTful Web Service
  
- 	project cros
+ 	project cros-rest
+
+ 	through the process of creating a "hello world" RESTful web service with Spring that 
+ 	includes headers for Cross-Origin Resource Sharing (CORS) in the response.
 
 	url:http://localhost:8080/greeting
 		http://localhost:8080/greeting?name=xx
 		http://localhost:9000
 
- 	@CrossOrigin(origins = "http://localhost:9000")
- 	WebMvcConfigurer
- 	CorsRegistry
- 	@GetMapping = @RequestMapping(method = RequestMethod.GET)
+ 	1.@CrossOrigin(origins = "http://localhost:9000")
+ 		origins, methods, allowedHeaders, exposedHeaders, allowCredentials or maxAge
+ 	2.WebMvcConfigurer
+ 	3.CorsRegistry
+ 		 registry.addMapping("/greeting-javaconfig").allowedOrigins("http://localhost:9000");
+ 	4.@GetMapping = @RequestMapping(method = RequestMethod.GET)
 
 
  35.Building Spring YARN Projects with Gradle
@@ -574,35 +653,96 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  	cannot access the soap web service
 
+ 	41.
+ 	46.
+
 
  42.Accessing JPA Data with REST
 
- 	project jpa_rest
+ 	project hypermedia_jpa_rest
 
- 	@RepositoryRestResource(collectionResourceRel = "people", path = "people")
- 	PagingAndSortingRepository
+ 	create and retrieve Person objects stored in a database using Spring Data REST. Spring Data REST 
+ 	takes the features of Spring HATEOAS and Spring Data JPA and combines them together automatically.
+
+	17.hypermedia-rest
+	ResourceSupport + @JsonCreator + @JsonProperty 
+	+ linlkto().withSelfRel()
+
+	22.jpa
+	@Entity + @Id + @GeneratedValue(strategy = GenerationType.AUTO) 
+	+ interface CustomerRepository extends CrudRepository<Customer, Long> 
+
+	42.hypermedia_jpa_rest
+ 	@Entity + @Id + @GeneratedValue(strategy = GenerationType.AUTO) 
+ 	+ @RepositoryRestResource(collectionResourceRel = "people", path = "people")
+ 	+ interface PersonRepository extends PagingAndSortingRepository<Person, Long>
+
+ 	1.@RepositoryRestResource(collectionResourceRel = "people", path = "people")
+ 	2.PagingAndSortingRepository
 
 
  43.Accessing Neo4j Data with REST
 
- 	Neo4j
+ 	project neo4j-rest
+
+ 	 11.neo4j
+	 @NodeEntity + @Id @GeneratedValue
+	 + interface PersonRepository extends CrudRepository<Person, Long>
+	 + @EnableNeo4jRepositories
+
+	 43.neo4j-rest
+	 @NodeEntity + @Id @GeneratedValue
+	 + @RepositoryRestResource(collectionResourceRel = "people", path = "people")
+	 + interface PersonRepository extends PagingAndSortingRepository<Person, Long>
+	 + @EnableNeo4jRepositories
  	
 
  44.Accessing MongoDB Data with REST
 
  	project mongodb_rest
 
- 	@RepositoryRestResource(collectionResourceRel = "people", path = "people")
+ 	23.mongodb
+	 @Id
+	+ interface CustomerRepository extends MongoRepository<Customer, String>
+
+	44.mongodb_rest
+	@Id 
+	+ @RepositoryRestResource(collectionResourceRel = "people", path = "people")
+    + interface PersonRepository extends MongoRepository<Person, String>
+
+ 	1.@RepositoryRestResource(collectionResourceRel = "people", path = "people")
 
 
  45.Accessing Data in Pivotal GemFire with REST
 
- 	gemfire version
+ 	project gemfire_rest
+
+ 	gemfire version is only aviable below spring-boot 2.0, cannot build and run 
+
+ 	18.gemfire
+ 	@Region(value = "People") + @PersistenceConstructor
+ 	+ interface PersonRepository extends CrudRepository<Person, String>
+ 	+ @ClientCacheApplication(name = "AccessingGemFireDataRestApplication", logLevel = "error")
+	+ @EnableEntityDefinedRegions(basePackageClasses = Person.class,
+	  clientRegionShortcut = ClientRegionShortcut.LOCAL)
+	+ @EnableGemfireRepositories
+
+ 	45.gemfire_rest
+ 	@Data + @Region("People") + @PersistenceConstructor
+ 	+ @RepositoryRestResource(collectionResourceRel = "people", path = "people")
+ 	+ interface PersonRepository extends CrudRepository<Person, Long>
+ 	+ @ClientCacheApplication(name = "AccessingGemFireDataRestApplication", logLevel = "error")
+	+ @EnableEntityDefinedRegions(basePackageClasses = Person.class,
+	  clientRegionShortcut = ClientRegionShortcut.LOCAL)
+	+ @EnableGemfireRepositories
 
 
  46.Producing a SOAP web service
 
  	cannot access the soap web service
+
+ 	41.
+ 	46.
  	
 
  47.Simple Single Project YARN Application
@@ -612,8 +752,13 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  	project caching
 
- 	@EnableCaching
- 	@Cacheable("books")
+ 	enables caching on a simple book repository
+
+ 	20.pivotal-gemfire-caching
+ 	48.caching
+
+ 	1.@EnableCaching
+ 	2.@Cacheable("books")
 
 
  49.Deploying to Cloud Foundry from STS
