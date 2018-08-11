@@ -428,8 +428,16 @@ Whatever you're building, these guides are designed to get you productive as qui
 	fetching the same quote again eliminates the expensive call to the Quote service since Spring’s Cache Abstraction,
 	backed by Pivotal GemFire, will be used to cache the results, given the same request.
 
-	20.pivotal-gemfire-caching
+ 	20.pivotal-gemfire-caching
+ 	@Cacheable("Quotes")
+ 	+ @CachePut(cacheNames = "Quotes", key = "#result.id")
+	+ @ClientCacheApplication(name = "CachingGemFireApplication", logLevel = "error")
+	+ @EnableCachingDefinedRegions(clientRegionShortcut = ClientRegionShortcut.LOCAL)
+	+ @EnableGemfireCaching
+
  	48.caching
+ 	@Cacheable("books")
+ 	+ @EnableCaching
 
 	1.@Data + @JsonIgnoreProperties(ignoreUnknown = true)
 	2.@JsonProperty("xxx")
@@ -695,6 +703,8 @@ Whatever you're building, these guides are designed to get you productive as qui
 	 + @RepositoryRestResource(collectionResourceRel = "people", path = "people")
 	 + interface PersonRepository extends PagingAndSortingRepository<Person, Long>
 	 + @EnableNeo4jRepositories
+
+	 1.@RepositoryRestResource(collectionResourceRel = "people", path = "people")
  	
 
  44.Accessing MongoDB Data with REST
@@ -736,6 +746,10 @@ Whatever you're building, these guides are designed to get you productive as qui
 	  clientRegionShortcut = ClientRegionShortcut.LOCAL)
 	+ @EnableGemfireRepositories
 
+	1.@RepositoryRestResource(collectionResourceRel = "people", path = "people")
+	2.@EnableEntityDefinedRegions(basePackageClasses = Person.class,
+	  clientRegionShortcut = ClientRegionShortcut.LOCAL)
+
 
  46.Producing a SOAP web service
 
@@ -755,7 +769,15 @@ Whatever you're building, these guides are designed to get you productive as qui
  	enables caching on a simple book repository
 
  	20.pivotal-gemfire-caching
+ 	@Cacheable("Quotes")
+ 	+ @CachePut(cacheNames = "Quotes", key = "#result.id")
+	+ @ClientCacheApplication(name = "CachingGemFireApplication", logLevel = "error")
+	+ @EnableCachingDefinedRegions(clientRegionShortcut = ClientRegionShortcut.LOCAL)
+	+ @EnableGemfireCaching
+
  	48.caching
+ 	@Cacheable("books")
+ 	+ @EnableCaching
 
  	1.@EnableCaching
  	2.@Cacheable("books")
@@ -780,34 +802,49 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  	project vaadin
 
+ 	build a Vaadin UI for a simple JPA repository.an app with full CRUD(Create, Read, Update, Delete)
+ 	functionality and a filtering example that uses a custom repository method.
+
 	url:http://localhost:8080
 
-	@Route
-	VerticalLayout 
-	HorizontalLayout
-	@UIScope
+	1.@Route
+	2.VerticalLayout 
+	3.HorizontalLayout
+	4.@SpringComponent + @UIScope
 
 
  53.Service Registration and Discovery 
 
-	project eureka
+	project eureka-rest
+
+	server-client
+
+	setup a Netflix Eureka service registry and then build a client that both registers itself with 
+	the registry and uses it to resolve its own host. A service registry is useful because it enables
+	client-side load-balancing and decouples service providers from consumers without the need for DNS
 
 	url:http://localhost:8080/service-instances/a-bootiful-client
 
-	@EnableEurekaServer
-	@EnableDiscoveryClient
-	DiscoveryClient 
+	1.@EnableEurekaServer
+	2.@EnableDiscoveryClient
+	3.DiscoveryClient 
+	4.eureka.client.register-with-eureka=false + eureka.client.fetch-registry=false
 	
 
  54.Centralized Configuration 
 
- 	project configuration
+ 	project configuration-rest
+
+ 	server-client
+
+ 	setup a Config Server and then build a client that consumes the configuration on startup and 
+ 	then refreshes the configuration without restarting the client
 
  	url:http://localhost:8080/message
 
- 	@EnableConfigServer
- 	@RefreshScope
- 	@Value("${message:Hello default}")
+ 	1.@EnableConfigServer
+ 	2.@RefreshScope
+ 	3.@Value("${message:Hello default}")
 
 
  55.Routing and Filtering 
