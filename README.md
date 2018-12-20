@@ -849,7 +849,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  55.Routing and Filtering 
 
- 	project routing-filtering
+ 	project routing-filtering-rest
 
  	url:http://localhost:8090
 
@@ -859,7 +859,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  56.Circuit Breaker 
 
- 	project circuit-breaker
+ 	project circuit-breaker-rest
 
    	@HystrixCommand(fallbackMethod = "reliable")
 	@EnableCircuitBreaker
@@ -867,7 +867,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  57.Client Side Load Balancing with Ribbon and Spring Cloud 
 
- 	project ribbon-cloud
+ 	project ribbon-cloud-rest
 
  	url:http://localhost:8888/hi
  		http://localhost:8888/hi?name=Orontes
@@ -894,7 +894,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  60.Creating a Multi Module Project 
 
-   	project nuti-module
+   	project nuti-module-rest
 
  	url:http://localhost:8080
 
@@ -911,7 +911,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  61.Creating API Documentation with Restdocs 
 
-    project restdocs
+    project restdocs-rest
 
     @AutoConfigureRestDocs(outputDir = "target/snippets")
   	testCompile("org.springframework.restdocs:spring-restdocs-mockmvc")
@@ -952,7 +952,7 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  67.Accessing Data Reactively with Redis
 
- 	project reactive-redis
+ 	project reactive-redis-rest
 
  	http://localhost:8080/coffees
 
@@ -964,4 +964,4 @@ Whatever you're building, these guides are designed to get you productive as qui
 
  69.Building a Gateway 
 
-  	project gateway
+  	project gateway-rest
