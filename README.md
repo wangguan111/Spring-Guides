@@ -845,8 +845,19 @@ idea + gradle
 
  	1.@EnableConfigServer
  	2.@RefreshScope
- 	3.@Value("${message:Hello default}")
+ 	3.
+ 		@Value("${message:Hello default}")
+ 		bootstrap.properties spring.application.name=clientServer management.endpoints.web.exposure.include=*
 
+ 		service
+ 		clientServer.properties message=Hello world
+ 	4.
+ 		#1.default git
+		spring.cloud.config.server.git.uri=${HOME}/Desktop/config
+		#2.native
+		spring.profiles.active=native
+		spring.cloud.config.server.native.search-locations=classpath:config/
+		spring.cloud.config.server.native.search-locations=file:E:\\Java\\Workspaces\\config
 
  55.Routing and Filtering 
 
