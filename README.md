@@ -824,7 +824,7 @@ idea + gradle
 	the registry and uses it to resolve its own host. A service registry is useful because it enables
 	client-side load-balancing and decouples service providers from consumers without the need for DNS
 
-	url:http://localhost:8080/service-instances/a-bootiful-client
+	url:http://localhost:8080/service-instances/eureka-client
 
 	1.@EnableEurekaServer
 	2.@EnableDiscoveryClient
@@ -858,6 +858,7 @@ idea + gradle
 		spring.profiles.active=native
 		spring.cloud.config.server.native.search-locations=classpath:config/
 		spring.cloud.config.server.native.search-locations=file:E:\\Java\\Workspaces\\config
+	5.http://localhost:8080/actuator/refresh
 
  55.Routing and Filtering 
 

@@ -1,7 +1,6 @@
 package com.example.eureka;
 
 import static org.assertj.core.api.BDDAssertions.*;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
