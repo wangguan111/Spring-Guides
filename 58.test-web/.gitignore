@@ -1,7 +1,9 @@
 .gradle
 /build/
-!gradle/wrapper/gradle-wrapper.jar
-/target/
+gradlew
+gradlew.bat
+settings.gradle
+gradle
 
 ### STS ###
 .apt_generated

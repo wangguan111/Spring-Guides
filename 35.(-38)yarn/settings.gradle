@@ -1,4 +1,0 @@
-include 'client'
-include 'appmaster'
-include 'container'
-include 'dist'
