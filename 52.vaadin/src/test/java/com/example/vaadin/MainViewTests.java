@@ -2,9 +2,7 @@ package com.example.vaadin;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.annotation.PostConstruct;
-
 import com.vaadin.flow.data.provider.ListDataProvider;
 import com.vaadin.flow.server.VaadinRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +10,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import static org.assertj.core.api.BDDAssertions.*;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

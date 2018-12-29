@@ -16,7 +16,6 @@
 package com.example.ribboncloud;
 
 import static org.assertj.core.api.BDDAssertions.*;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

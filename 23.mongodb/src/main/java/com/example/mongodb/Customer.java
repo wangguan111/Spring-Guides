@@ -2,7 +2,6 @@ package com.example.mongodb;
 
 import org.springframework.data.annotation.Id;
 
-
 public class Customer {
 
     @Id

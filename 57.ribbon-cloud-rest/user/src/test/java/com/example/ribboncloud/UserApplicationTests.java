@@ -1,9 +1,7 @@
 package com.example.ribboncloud;
 
 import static org.assertj.core.api.BDDAssertions.*;
-
 import java.util.concurrent.atomic.AtomicInteger;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

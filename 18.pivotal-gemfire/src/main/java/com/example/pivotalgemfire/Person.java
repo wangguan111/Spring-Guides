@@ -1,11 +1,9 @@
 package com.example.pivotalgemfire;
 
 import java.io.Serializable;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.gemfire.mapping.annotation.Region;
-
 import lombok.Getter;
 
 @Region(value = "People")

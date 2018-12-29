@@ -2,7 +2,6 @@ package com.example.vaadin;
 
 import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.BDDMockito.then;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

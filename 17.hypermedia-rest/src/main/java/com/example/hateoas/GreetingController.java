@@ -1,7 +1,6 @@
 package com.example.hateoas;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
-
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
