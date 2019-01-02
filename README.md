@@ -827,9 +827,9 @@ idea + gradle
 	url:http://localhost:8080/service-instances/eureka-client
 
 	1.@EnableEurekaServer
-	2.@EnableDiscoveryClient
-	3.DiscoveryClient 
-	4.eureka.client.register-with-eureka=false + eureka.client.fetch-registry=false
+	2.eureka.client.register-with-eureka=false + eureka.client.fetch-registry=false
+	3.@EnableDiscoveryClient
+	4.DiscoveryClient 
 	
 
  54.Centralized Configuration 
